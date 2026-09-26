@@ -4,98 +4,93 @@
 
 Web Security Reconnaissance & Assessment Framework
 
-<p>
-  <strong>Reconnaissance • Discovery • Analysis • Evidence • Reporting</strong>
-</p>
-
-<!--
-  Optional animated hero asset.
-  After uploading the asset to your repository, uncomment:
-  <img src="assets/axionr-banner.gif" width="100%" alt="AxionR Anime Cybersecurity Banner">
--->
+Reconnaissance • Discovery • Analysis • Evidence • Reporting
 
 <p>
-  <img src="https://img.shields.io/badge/AxionR-v2.0.0-06B6D4?style=for-the-badge&labelColor=0B0F14" alt="AxionR Version">
-  <img src="https://img.shields.io/badge/Python-3.x-3B82F6?style=for-the-badge&labelColor=0B0F14" alt="Python">
-  <img src="https://img.shields.io/badge/Kali%20Linux-Ready-111820?style=for-the-badge&logo=kalilinux&logoColor=white" alt="Kali Linux">
-  <img src="https://img.shields.io/badge/CLI-Security%20Framework-8B5CF6?style=for-the-badge&labelColor=0B0F14" alt="CLI">
+  <img src="https://img.shields.io/badge/AxionR-v2.0.0-06B6D4?style=for-the-badge&labelColor=0B0F14" alt="AxionR v2.0.0">
+  <img src="https://img.shields.io/badge/Python-3.x-3B82F6?style=for-the-badge&labelColor=0B0F14" alt="Python 3.x">
+  <img src="https://img.shields.io/badge/Kali%20Linux-Ready-111820?style=for-the-badge&logo=kalilinux&logoColor=white" alt="Kali Linux Ready">
+  <img src="https://img.shields.io/badge/CLI-Security%20Framework-8B5CF6?style=for-the-badge&labelColor=0B0F14" alt="CLI Security Framework">
 </p>
 
-<p>
-  <em>A structured security-assessment workflow for authorized testing, labs, CTFs and security research.</em>
-</p>
+<p><em>A structured security-assessment workflow for authorized testing, labs, CTFs, and security research.</em></p>
+
+<!-- Optional hero asset: upload assets/axionr-banner.gif and uncomment. -->
+
+<!-- <img src="assets/axionr-banner.gif" width="100%" alt="AxionR Anime Cybersecurity Banner"> -->
 
 </div>
 
-🛰️ About AxionR
+🛰️ Overview
 
 AxionR is a Python-based cybersecurity reconnaissance and web security assessment framework that organizes multiple security tools and analysis stages into a single, repeatable workflow.
 
-The goal is not to replace every specialized security tool. Instead, AxionR acts as an assessment orchestration layer:
-
-                    ┌─────────────────────┐
-                    │       TARGET        │
-                    └──────────┬──────────┘
-                               │
-                               ▼
-                    ┌─────────────────────┐
-                    │   SCOPE VALIDATION  │
-                    └──────────┬──────────┘
-                               │
-                               ▼
-                    ┌─────────────────────┐
-                    │   RECONNAISSANCE    │
-                    └──────────┬──────────┘
-                               │
-             ┌─────────────────┼─────────────────┐
-             ▼                 ▼                 ▼
-          DNS / HOSTS       PORTS / WEB      TECHNOLOGIES
-             │                 │                 │
-             └─────────────────┼─────────────────┘
-                               ▼
-                    ┌─────────────────────┐
-                    │   URL DISCOVERY     │
-                    └──────────┬──────────┘
-                               │
-                               ▼
-                    ┌─────────────────────┐
-                    │ JAVASCRIPT ANALYSIS │
-                    └──────────┬──────────┘
-                               │
-                               ▼
-                    ┌─────────────────────┐
-                    │ PARAMETER DISCOVERY │
-                    └──────────┬──────────┘
-                               │
-                               ▼
-                    ┌─────────────────────┐
-                    │ CONTENT DISCOVERY   │
-                    └──────────┬──────────┘
-                               │
-                               ▼
-                    ┌─────────────────────┐
-                    │ SECURITY ASSESSMENT │
-                    └──────────┬──────────┘
-                               │
-                               ▼
-                    ┌─────────────────────┐
-                    │ FINDING ANALYSIS    │
-                    │ Normalize / Dedup    │
-                    │ Classify / Correlate │
-                    └──────────┬──────────┘
-                               │
-                               ▼
-                    ┌─────────────────────┐
-                    │ EVIDENCE + REPORTS  │
-                    └─────────────────────┘
-
-AxionR is designed around a simple principle:
+Rather than attempting to replace every specialized security utility, AxionR acts as an assessment orchestration layer: it coordinates discovery, analysis, evidence collection, finding normalization, and reporting around a target-specific workspace.
 
 Discover the attack surface → organize evidence → assess security signals → preserve findings → generate a useful report.
 
+🏗️ Assessment Architecture
+
+┌─────────────────────┐
+│       TARGET        │
+└──────────┬──────────┘
+           │
+           ▼
+┌─────────────────────┐
+│   SCOPE VALIDATION  │
+└──────────┬──────────┘
+           │
+           ▼
+┌─────────────────────┐
+│   RECONNAISSANCE    │
+└──────────┬──────────┘
+           │
+     ┌─────┼─────┐
+     ▼     ▼     ▼
+   DNS /  PORTS / TECHNOLOGY
+   HOSTS   WEB    DISCOVERY
+     │     │     │
+     └─────┼─────┘
+           ▼
+┌─────────────────────┐
+│   URL DISCOVERY     │
+└──────────┬──────────┘
+           │
+           ▼
+┌─────────────────────┐
+│ JAVASCRIPT ANALYSIS │
+└──────────┬──────────┘
+           │
+           ▼
+┌─────────────────────┐
+│ PARAMETER DISCOVERY │
+└──────────┬──────────┘
+           │
+           ▼
+┌─────────────────────┐
+│  CONTENT DISCOVERY  │
+└──────────┬──────────┘
+           │
+           ▼
+┌─────────────────────┐
+│ SECURITY ASSESSMENT │
+└──────────┬──────────┘
+           │
+           ▼
+┌─────────────────────────────┐
+│       FINDING ANALYSIS      │
+│ Normalize • Deduplicate     │
+│ Classify • Correlate        │
+└──────────────┬──────────────┘
+               │
+               ▼
+┌─────────────────────────────┐
+│      EVIDENCE + REPORTS     │
+└─────────────────────────────┘
+
 🎯 Project Goals
 
-AxionR is designed to make authorized security assessments more structured and repeatable.
+AxionR is designed to make authorized security assessments more structured, repeatable, and easier to review.
 
 Primary goals
 
@@ -103,9 +98,9 @@ Centralize reconnaissance workflows.
 
 Reduce repetitive manual command execution.
 
-Keep each target in a separate workspace.
+Maintain a separate workspace for each target.
 
-Validate target scope before assessment stages.
+Validate scope before assessment stages.
 
 Combine passive and active discovery.
 
@@ -113,126 +108,163 @@ Normalize findings from different tools.
 
 Preserve scanner evidence and execution metadata.
 
-Distinguish observations/candidates from confirmed vulnerabilities.
+Distinguish observations and candidates from confirmed vulnerabilities.
 
 Generate machine-readable and human-readable reports.
 
-Provide a professional CLI suitable for labs, demonstrations and security research.
+Provide a professional CLI for labs, demonstrations, and security research.
 
 Non-goals
 
 AxionR is not intended to:
 
-bypass authorization,
+bypass authorization;
 
-provide unauthorized access,
+provide unauthorized access;
 
-steal credentials,
+steal credentials;
 
-maintain persistence,
+maintain persistence;
 
-deploy malware,
+deploy malware;
 
-perform destructive testing,
+perform destructive testing;
 
-hide activity from defenders,
+hide activity from defenders;
 
 automatically exploit arbitrary targets.
 
-✨ Key Features
+✨ Features
 
 🔍 01 — Reconnaissance
 
-AxionR can orchestrate reconnaissance utilities such as:
+AxionR can orchestrate reconnaissance utilities including:
+
+Tool
+
+Purpose
 
 Subfinder
 
+Subdomain discovery
+
 Amass
+
+Asset and subdomain enumeration
 
 GAU
 
+Passive URL discovery
+
 Waybackurls
+
+Historical URL discovery
 
 DNSX
 
+DNS probing
+
 HTTPX
+
+HTTP probing and metadata
 
 Katana
 
+Web crawling
+
 Hakrawler
 
-Typical output includes:
+Web crawling
 
-Domains
-Subdomains
-Resolved hosts
-Historical URLs
-Live HTTP services
-Technology metadata
+Typical outputs include:
+
+domains;
+
+subdomains;
+
+resolved hosts;
+
+historical URLs;
+
+live HTTP services;
+
+technology metadata.
 
 🌐 02 — Asset Discovery
 
-The asset-discovery stage helps organize:
+The asset-discovery stage can organize:
 
-domains,
+domains;
 
-subdomains,
+subdomains;
 
-IP addresses,
+IP addresses;
 
-DNS results,
+DNS results;
 
-HTTP/HTTPS services,
+HTTP/HTTPS services;
 
-ports,
+ports;
 
-service banners,
+service banners;
 
-technology metadata,
+technology metadata;
 
 WAF observations.
 
-Network/service tooling may include:
+Supporting tools include:
+
+Tool
+
+Purpose
 
 Nmap
 
+Port and service enumeration
+
 Naabu
+
+Port discovery
 
 WhatWeb
 
+Technology fingerprinting
+
 Wafw00f
+
+WAF detection
 
 🕷️ 03 — URL Discovery
 
-AxionR can combine URL sources and crawling results.
+AxionR can combine URL sources and crawling results from:
 
-Sources may include:
+historical archives;
 
-Historical archives
-Passive URL collection
-HTTP probing
-Web crawling
-Application-discovered URLs
+passive URL collection;
 
-The framework then applies in-scope filtering before using discovered URLs in later stages.
+HTTP probing;
+
+web crawling;
+
+application-discovered URLs.
+
+Discovered URLs are filtered against the assessment scope before being used in later stages.
 
 🧩 04 — JavaScript Analysis
 
-AxionR identifies JavaScript resources and performs lightweight analysis for:
+AxionR performs lightweight JavaScript analysis for:
 
-JavaScript URL collection,
+JavaScript URL collection;
 
-endpoint candidates,
+endpoint candidates;
 
-API-like paths,
+API-like paths;
 
-suspicious configuration patterns,
+suspicious configuration patterns;
 
 token/secret-like strings requiring manual validation.
 
-Important:
-
-A string matching a secret-like pattern is a candidate, not proof that a valid secret exists or is exploitable.
+Important: A string matching a secret-like pattern is a candidate, not proof that a valid secret exists or is exploitable.
 
 🔎 05 — Parameter Discovery
 
@@ -243,58 +275,79 @@ Example:
 https://example.com/search?q=test
                          └── parameter
 
-This information can be used to prioritize later authorized security review.
+Parameter information can help prioritize later authorized security review.
 
 📂 06 — Content Discovery
 
 AxionR can integrate FFUF and available wordlists for authorized path discovery.
 
-Possible result categories:
+Common HTTP result categories include:
 
-200  → accessible resource
-301  → redirect
-302  → redirect
-401  → authentication required
-403  → forbidden
-404  → not found
+Code
 
-Results are preserved for later analysis rather than automatically treated as vulnerabilities.
+Meaning
+
+200
+
+Accessible resource
+
+301
+
+Redirect
+
+302
+
+Redirect
+
+401
+
+Authentication required
+
+403
+
+Forbidden
+
+404
+
+Not found
+
+Discovery results are preserved for analysis and are not automatically treated as vulnerabilities.
 
 🛡️ 07 — Security Assessment
 
-AxionR supports integration with security assessment tools including:
+AxionR supports security-assessment integrations including:
 
-Nuclei
+Nuclei;
 
-Dalfox
+Dalfox;
 
-SQLMap detection/integration foundation
+SQLMap integration/detection foundation;
 
-AxionR custom low-impact checks
+AxionR custom low-impact checks.
 
-Important scanner behavior
-
-Scanner output is preserved as evidence and may require manual validation.
-
-For example:
+Scanner-output philosophy
 
 Scanner output
-      ↓
+      │
+      ▼
 AxionR finding
-      ↓
+      │
+      ▼
 Evidence preserved
-      ↓
+      │
+      ▼
 Manual validation
-      ↓
+      │
+      ▼
 Confirmed finding
 
 AxionR does not automatically treat every scanner result as a confirmed vulnerability.
 
 🧠 Finding Intelligence
 
-AxionR uses a structured finding model.
+AxionR uses a structured finding model to keep results consistent across tools.
 
-Example:
+Example
 
 {
   "id": "a1b2c3d4e5f6",
@@ -332,15 +385,15 @@ REPORTED
 CONFIRMED
 INFORMATIONAL
 
-This distinction is important because:
+This distinction matters:
 
-Observation ≠ Vulnerability
-Candidate ≠ Confirmed
-Scanner output ≠ Independent validation
+Observation          ≠ Vulnerability
+Candidate            ≠ Confirmed
+Scanner output       ≠ Independent validation
 
 🎮 Operating Modes
 
-AxionR provides multiple workflows.
+AxionR provides nine assessment modes:
 
 Mode
 
@@ -387,64 +440,64 @@ User-selected phase workflow
 FULL
 
 Setup
- ↓
+  ↓
 Scope
- ↓
+  ↓
 Recon
- ↓
+  ↓
 Asset Discovery
- ↓
+  ↓
 URL Discovery
- ↓
+  ↓
 JavaScript Analysis
- ↓
+  ↓
 Parameter Discovery
- ↓
+  ↓
 Content Discovery
- ↓
+  ↓
 Security Assessment
- ↓
+  ↓
 Finding Analysis
- ↓
+  ↓
 Evidence
- ↓
+  ↓
 Reporting
 
 RECON
 
 Setup
- ↓
+  ↓
 Scope
- ↓
+  ↓
 Recon
- ↓
+  ↓
 Asset Discovery
- ↓
+  ↓
 URL Discovery
- ↓
+  ↓
 Finding Analysis
- ↓
+  ↓
 Reporting
 
 QUICK
 
 Setup
- ↓
+  ↓
 Scope
- ↓
+  ↓
 Asset Discovery
- ↓
+  ↓
 Security Assessment
- ↓
+  ↓
 Reporting
 
 CUSTOM
 
-The user selects the desired assessment phases.
+Select the assessment phases required for the authorized engagement.
 
 🧩 Integrated Tool Stack
 
-Recon
+Reconnaissance
 
 Tool
 
@@ -482,7 +535,7 @@ Hakrawler
 
 Web crawling
 
-Network / Web
+Network & Web
 
 Tool
 
@@ -526,7 +579,7 @@ PayloadsAllTheThings
 
 Security-testing reference payloads
 
-Assessment
+Security Assessment
 
 Tool
 
@@ -544,9 +597,9 @@ SQLMap
 
 SQL injection assessment
 
-Third-party tools are independently maintained projects. Their availability, CLI behavior and output can vary by installed version.
+Third-party tools are independently maintained projects. Their installation requirements, CLI behavior, versions, output formats, and licenses may vary.
 
-🖥️ Professional CLI Experience
+🖥️ CLI Experience
 
 AxionR uses a consistent dark technical terminal identity.
 
@@ -564,31 +617,31 @@ Example:
 
 The interface includes:
 
-centered AxionR branding,
+centered AxionR branding;
 
-startup animation,
+startup animation;
 
-module headers,
+module headers;
 
-status indicators,
+status indicators;
 
-progress bars,
+progress information;
 
-scan-state information,
+scan-state information;
 
-completion dashboard,
+completion dashboard;
 
-warnings and errors,
+warnings and errors;
 
 report paths.
 
-The visual direction is intentionally clean enterprise-security UI, rather than excessive hacker-style effects.
+The visual direction is intended to remain clean and professional, rather than relying on excessive hacker-style effects.
 
 🌌 Anime / Cybersecurity Visual Identity
 
 AxionR can use an anime-inspired cybersecurity visual system for GitHub documentation and project presentation.
 
-Recommended visual language:
+Visual direction
 
 Dark SOC Environment
         +
@@ -602,7 +655,7 @@ Terminal Data
         +
 Subtle Scanning Animation
 
-Suggested assets
+Recommended assets
 
 assets/
 ├── axionr-banner.gif
@@ -618,7 +671,7 @@ assets/
 
 Animated banner
 
-After adding the GIF to the repository:
+After uploading the asset:
 
 <p align="center">
   <img
@@ -643,7 +696,6 @@ Anime character
 Recommended GitHub structure:
 
 AxionR/
-│
 ├── axionr.py
 ├── README.md
 ├── LICENSE
@@ -672,7 +724,7 @@ AxionR/
 └── wordlists/
     └── README.md
 
-Generated runtime data
+Runtime data
 
 The following should generally remain local and should not be committed:
 
@@ -690,23 +742,19 @@ Requirements
 
 Recommended environment:
 
-OS          : Kali Linux / Debian-based Linux
-Python      : Python 3.x
-Git         : Git
-Optional    : Go
+OS       : Kali Linux / Debian-based Linux
+Python   : Python 3.x
+Git      : Git
+Optional : Go
 
-Some assessment modules require external tools.
+Some assessment modules require additional external tools.
 
 1. Clone the repository
 
 git clone https://github.com/YOUR_USERNAME/AxionR.git
 cd AxionR
 
-Replace:
-
-YOUR_USERNAME
-
-with your GitHub username.
+Replace YOUR_USERNAME with your GitHub username.
 
 2. Check Python
 
@@ -724,53 +772,53 @@ python3 axionr.py --status
 
 ⚡ Quick Start
 
-Interactive mode:
+Interactive mode
 
 python3 axionr.py
 
-Direct FULL workflow:
+FULL assessment
 
 python3 axionr.py example.com --mode full
 
-Recon:
+Reconnaissance
 
 python3 axionr.py example.com --mode recon
 
-Quick triage:
+Quick triage
 
 python3 axionr.py example.com --mode quick
 
-CTF/lab:
+CTF / lab
 
 python3 axionr.py example.com --mode ctf
 
-eJPT-style lab:
+eJPT-style lab
 
 python3 axionr.py example.com --mode ejpt
 
-OSCP-style authorized lab:
+OSCP-style authorized lab
 
 python3 axionr.py example.com --mode oscp
 
-Audit:
+Audit
 
 python3 axionr.py example.com --mode audit
 
-Custom:
+Custom workflow
 
 python3 axionr.py example.com --mode custom
 
-Disable automatic installation:
+Disable automatic installation
 
 python3 axionr.py example.com --mode recon --no-install
 
-Start a new scan instead of resuming:
+Start a new scan
 
 python3 axionr.py example.com --mode full --new
 
 🛡️ Scope Management
 
-AxionR creates:
+AxionR creates a target-specific scope file:
 
 workspace/<target>/scope.txt
 
@@ -788,179 +836,804 @@ Review the scope.
 
 Confirm allowed domains/IPs.
 
-Confirm allowed testing methods.
+Confirm permitted testing methods.
 
 Confirm rate limits and program rules.
 
-Then start the assessment.
+Start the assessment only after authorization is established.
 
-Scope filtering is also used when processing discovered URLs.
+Scope filtering is also applied when processing discovered URLs.
 
 🔄 Checkpoint & Resume
 
-AxionR stores state in:
+AxionR stores workflow state in:
 
 workspace/<target>/status.json
 
 Completed phases can be preserved so a later run can continue without unnecessarily repeating completed workflow stages.
 
-Start completely fresh:
+Start completely fresh
 
 python3 axionr.py example.com --mode full --new
 
-Disable resume behavior:
+Disable resume behavior
 
 python3 axionr.py example.com --mode full --no-resume
 
 📦 Workspace Output
 
-For:
+AxionR maintains a separate workspace for every target so that reconnaissance data, discovered assets, scan results, evidence, logs, findings, and reports remain organized throughout the assessment.
+
+For example, when the authorized target is:
 
 example.com
 
-AxionR can create:
+AxionR creates a target-specific workspace:
 
 workspace/
 └── example.com/
     │
-    ├── scope.txt
-    ├── status.json
+    ├── 📄 scope.txt
+    ├── 📄 status.json
     │
-    ├── recon/
+    ├── 🔎 recon/
     │   ├── subfinder.txt
-    │   └── amass.txt
-    │
-    ├── assets/
-    │   ├── subdomains.txt
-    │   └── all_hosts.txt
-    │
-    ├── dns/
-    │   ├── live_hosts.txt
-    │   └── resolved_ips.txt
-    │
-    ├── ports/
-    │   ├── nmap.txt
-    │   └── open_services.txt
-    │
-    ├── web/
-    │   ├── httpx_raw.txt
-    │   ├── live_urls.txt
-    │   └── waf_detection.txt
-    │
-    ├── urls/
+    │   ├── amass.txt
     │   ├── gau.txt
     │   ├── waybackurls.txt
-    │   └── all_urls.txt
+    │   └── recon_summary.txt
     │
-    ├── javascript/
+    ├── 🌐 assets/
+    │   ├── subdomains.txt
+    │   ├── all_hosts.txt
+    │   ├── live_hosts.txt
+    │   ├── resolved_ips.txt
+    │   └── technologies.txt
+    │
+    ├── 🧬 dns/
+    │   ├── dns_records.txt
+    │   ├── resolved_ips.txt
+    │   ├── live_hosts.txt
+    │   └── dnsx_results.txt
+    │
+    ├── 🔌 ports/
+    │   ├── nmap.txt
+    │   ├── naabu.txt
+    │   ├── open_ports.txt
+    │   ├── services.txt
+    │   └── port_summary.txt
+    │
+    ├── 🖥️ web/
+    │   ├── httpx_raw.txt
+    │   ├── live_urls.txt
+    │   ├── http_status.txt
+    │   ├── technologies.txt
+    │   ├── waf_detection.txt
+    │   └── web_summary.txt
+    │
+    ├── 🔗 urls/
+    │   ├── gau.txt
+    │   ├── waybackurls.txt
+    │   ├── katana.txt
+    │   ├── hakrawler.txt
+    │   ├── all_urls.txt
+    │   └── in_scope_urls.txt
+    │
+    ├── 🧩 javascript/
     │   ├── javascript_urls.txt
-    │   └── candidates.txt
+    │   ├── endpoints.txt
+    │   ├── api_candidates.txt
+    │   ├── secret_candidates.txt
+    │   └── javascript_analysis.txt
     │
-    ├── parameters/
-    │   └── observed_parameters.txt
+    ├── 🔎 parameters/
+    │   ├── observed_parameters.txt
+    │   ├── arjun_results.txt
+    │   ├── parameter_urls.txt
+    │   └── parameter_analysis.txt
     │
-    ├── content/
-    │   └── ffuf_results.txt
+    ├── 📂 content/
+    │   ├── ffuf_results.txt
+    │   ├── discovered_paths.txt
+    │   ├── interesting_paths.txt
+    │   └── content_summary.txt
     │
-    ├── scans/
+    ├── 🛡️ scans/
     │   ├── nuclei.jsonl
+    │   ├── nuclei.txt
     │   ├── dalfox.txt
-    │   └── sqlmap_notice.txt
+    │   ├── sqlmap_notice.txt
+    │   └── scanner_summary.txt
     │
-    ├── findings/
+    ├── 🧠 findings/
     │   ├── findings.json
+    │   ├── findings_normalized.json
+    │   ├── findings_deduplicated.json
     │   └── raw_count.txt
     │
-    ├── evidence/
-    │   └── environment.json
+    ├── 🔬 evidence/
+    │   ├── environment.json
+    │   ├── headers/
+    │   ├── requests/
+    │   ├── responses/
+    │   └── screenshots/
     │
-    ├── logs/
-    │   └── commands.jsonl
+    ├── 📝 logs/
+    │   ├── commands.jsonl
+    │   ├── execution.log
+    │   ├── errors.log
+    │   └── timestamps.log
     │
-    └── reports/
+    └── 📊 reports/
         ├── axionr_report.html
         ├── axionr_report.json
         └── summary.txt
+
+📁 Directory Responsibilities
+
+Each directory represents a stage or output category in the AxionR assessment pipeline.
+
+📄 Root Files
+
+scope.txt
+status.json
+
+scope.txt
+
+Contains the authorized assessment scope.
+
+Example:
+
+# AxionR Authorized Scope
+
+example.com
+*.example.com
+
+The scope file helps keep assessment activity aligned with the intended authorization boundary.
+
+status.json
+
+Stores workflow state used by checkpoint and resume functionality.
+
+Typical state can include:
+
+Target
+Mode
+Completed phases
+Current phase
+Scan status
+Start time
+Last update
+
+🔎 recon/
+
+Stores raw and processed reconnaissance results.
+
+Typical sources include:
+
+Subfinder
+Amass
+GAU
+Waybackurls
+
+Example:
+
+recon/
+├── subfinder.txt
+├── amass.txt
+├── gau.txt
+├── waybackurls.txt
+└── recon_summary.txt
+
+Purpose:
+
+Passive Discovery
+       ↓
+Initial Attack-Surface Mapping
+
+🌐 assets/
+
+Contains the consolidated asset inventory.
+
+Example:
+
+assets/
+├── subdomains.txt
+├── all_hosts.txt
+├── live_hosts.txt
+├── resolved_ips.txt
+└── technologies.txt
+
+Typical information:
+
+Domains
+Subdomains
+Hosts
+IP addresses
+Live services
+Technologies
+
+This inventory becomes the foundation for later assessment stages.
+
+🧬 dns/
+
+Stores DNS discovery and resolution results.
+
+Example:
+
+dns/
+├── dns_records.txt
+├── resolved_ips.txt
+├── live_hosts.txt
+└── dnsx_results.txt
+
+Possible data includes:
+
+A
+AAAA
+CNAME
+MX
+NS
+TXT
+Resolved IP addresses
+DNS probing results
+
+🔌 ports/
+
+Stores network and service enumeration results.
+
+Example:
+
+ports/
+├── nmap.txt
+├── naabu.txt
+├── open_ports.txt
+├── services.txt
+└── port_summary.txt
+
+Typical information:
+
+Open ports
+Services
+Service versions
+Protocols
+Network exposure
+
+Example:
+
+22    SSH
+80    HTTP
+443   HTTPS
+8080  HTTP
+
+🖥️ web/
+
+Contains HTTP/HTTPS probing and web-service analysis.
+
+Example:
+
+web/
+├── httpx_raw.txt
+├── live_urls.txt
+├── http_status.txt
+├── technologies.txt
+├── waf_detection.txt
+└── web_summary.txt
+
+Typical information:
+
+HTTP status
+Page title
+Web server
+Technologies
+Redirects
+HTTPS availability
+WAF observations
+
+🔗 urls/
+
+Central URL-discovery workspace.
+
+AxionR can combine URL sources such as:
+
+GAU
+Waybackurls
+Katana
+Hakrawler
+HTTP probing
+
+Example:
+
+urls/
+├── gau.txt
+├── waybackurls.txt
+├── katana.txt
+├── hakrawler.txt
+├── all_urls.txt
+└── in_scope_urls.txt
+
+The URL pipeline is:
+
+Multiple URL Sources
+        ↓
+Normalization
+        ↓
+Deduplication
+        ↓
+Scope Filtering
+        ↓
+in_scope_urls.txt
+
+🧩 javascript/
+
+Stores JavaScript resources and analysis results.
+
+Example:
+
+javascript/
+├── javascript_urls.txt
+├── endpoints.txt
+├── api_candidates.txt
+├── secret_candidates.txt
+└── javascript_analysis.txt
+
+Possible analysis includes:
+
+JavaScript files
+Endpoint candidates
+API-like paths
+Configuration patterns
+Secret-like strings
+
+Secret-like strings and endpoint patterns are treated as candidates requiring validation, not automatically as confirmed vulnerabilities or valid credentials.
+
+🔎 parameters/
+
+Stores discovered URL parameters and parameter-analysis results.
+
+Example:
+
+parameters/
+├── observed_parameters.txt
+├── arjun_results.txt
+├── parameter_urls.txt
+└── parameter_analysis.txt
+
+Example:
+
+https://example.com/search?q=test
+                              └── q
+
+Parameter information can help prioritize later authorized security testing.
+
+📂 content/
+
+Stores web-content discovery results.
+
+Example:
+
+content/
+├── ffuf_results.txt
+├── discovered_paths.txt
+├── interesting_paths.txt
+└── content_summary.txt
+
+Possible discoveries:
+
+/admin
+/login
+/api
+/backup
+/assets
+/config
+
+A discovered path is not automatically a vulnerability.
+
+🛡️ scans/
+
+Contains security-tool output.
+
+Example:
+
+scans/
+├── nuclei.jsonl
+├── nuclei.txt
+├── dalfox.txt
+├── sqlmap_notice.txt
+└── scanner_summary.txt
+
+Integrated assessment tooling can include:
+
+Nuclei
+Dalfox
+SQLMap
+AxionR custom checks
+
+Scanner pipeline:
+
+Security Scanner
+       ↓
+Raw Output
+       ↓
+AxionR Parser
+       ↓
+Normalized Finding
+       ↓
+Evidence
+       ↓
+Manual Validation
+
+Scanner output should not automatically be interpreted as a confirmed vulnerability.
+
+🧠 findings/
+
+Contains structured security findings generated by AxionR.
+
+Example:
+
+findings/
+├── findings.json
+├── findings_normalized.json
+├── findings_deduplicated.json
+└── raw_count.txt
+
+A finding can contain:
+
+Finding ID
+Finding Type
+Target
+URL
+Severity
+Confidence
+Status
+Source
+Evidence
+Timestamp
+
+Example:
+
+{
+  "id": "a1b2c3d4",
+  "type": "Missing HSTS",
+  "severity": "LOW",
+  "confidence": "MEDIUM",
+  "status": "CANDIDATE",
+  "target": "example.com",
+  "source": "AxionR-Headers"
+}
+
+Finding lifecycle:
+
+Observation
+    ↓
+Candidate
+    ↓
+Normalized
+    ↓
+Deduplicated
+    ↓
+Validated
+    ↓
+Reported
+
+🔬 evidence/
+
+Stores supporting assessment evidence.
+
+Example:
+
+evidence/
+├── environment.json
+├── headers/
+├── requests/
+├── responses/
+└── screenshots/
+
+Evidence may include:
+
+HTTP headers
+Tool output
+Request/response information
+Environment metadata
+Screenshots
+Scanner evidence
+
+The purpose is to make findings easier to review and reproduce.
+
+📝 logs/
+
+Stores execution and diagnostic information.
+
+Example:
+
+logs/
+├── commands.jsonl
+├── execution.log
+├── errors.log
+└── timestamps.log
+
+Typical information:
+
+Executed command
+Module
+Timestamp
+Exit status
+Execution result
+Error information
+
+This helps diagnose failed tools and reconstruct the assessment timeline.
+
+📊 reports/
+
+Contains the final assessment outputs.
+
+reports/
+├── axionr_report.html
+├── axionr_report.json
+└── summary.txt
+
+HTML Report
+
+axionr_report.html
+
+Designed for:
+
+browser viewing;
+
+demonstrations;
+
+project presentations;
+
+assessment review.
+
+JSON Report
+
+axionr_report.json
+
+Designed for:
+
+automation;
+
+integrations;
+
+parsing;
+
+future dashboards;
+
+data processing.
+
+Text Summary
+
+summary.txt
+
+Designed for:
+
+terminal review;
+
+quick assessment summaries;
+
+compact result sharing.
+
+🔄 Complete Workspace Data Flow
+
+                    TARGET
+                       │
+                       ▼
+                SCOPE VALIDATION
+                       │
+                       ▼
+                 RECONNAISSANCE
+                       │
+          ┌────────────┼────────────┐
+          ▼            ▼            ▼
+        DNS          HOSTS         WEB
+          │            │            │
+          └────────────┼────────────┘
+                       ▼
+                 ASSET INVENTORY
+                       │
+                       ▼
+                  URL DISCOVERY
+                       │
+                       ▼
+              SCOPE + DEDUPLICATION
+                       │
+                       ▼
+             JAVASCRIPT ANALYSIS
+                       │
+                       ▼
+             PARAMETER DISCOVERY
+                       │
+                       ▼
+              CONTENT DISCOVERY
+                       │
+                       ▼
+             SECURITY ASSESSMENT
+                       │
+                       ▼
+               RAW SCANNER DATA
+                       │
+                       ▼
+             FINDING NORMALIZATION
+                       │
+                       ▼
+                DEDUPLICATION
+                       │
+                       ▼
+             EVIDENCE COLLECTION
+                       │
+                       ▼
+               FINDING ANALYSIS
+                       │
+                       ▼
+                  REPORTING
+              ┌────────┼────────┐
+              ▼        ▼        ▼
+            HTML      JSON      TXT
+
+🗂️ Target Isolation
+
+Every target receives its own workspace:
+
+workspace/
+├── example.com/
+├── test.lab/
+└── lab.local/
+
+Each target maintains its own:
+
+Scope
+Recon
+Assets
+DNS
+Ports
+Web data
+URLs
+JavaScript
+Parameters
+Content
+Scans
+Findings
+Evidence
+Logs
+Reports
+
+This keeps assessment data from different targets isolated at the workspace level.
+
+🔐 Workspace Security
+
+Workspace data may contain sensitive assessment information.
+
+Do not commit the following to a public GitHub repository:
+
+workspace/
+private scan results
+credentials
+API keys
+tokens
+private target information
+client data
+personal information
+confidential evidence
+
+Recommended .gitignore entries:
+
+# AxionR runtime data
+workspace/
+logs/
+
+# Local configuration
+config/config.json
+
+# Sensitive files
+*.key
+*.pem
+*.secret
+.env
+.env.*
+
+# Python
+__pycache__/
+*.pyc
+
+# Local virtual environment
+.venv/
+venv/
+
+📌 Workspace Notes
+
+The exact files produced can vary depending on:
+
+selected AxionR mode;
+
+installed third-party tools;
+
+target scope;
+
+tool availability;
+
+successful execution of individual phases;
+
+assessment configuration.
+
+Therefore, the structure above describes the logical AxionR workspace architecture. Individual files or directories may not be created during every run.
 
 📊 Reporting
 
 AxionR produces multiple report formats.
 
+Format
+
+File
+
+Purpose
+
 HTML
 
 reports/axionr_report.html
 
-Designed for:
-
-browser viewing,
-
-demonstrations,
-
-project presentations,
-
-assessment review.
+Browser viewing, demonstrations, assessment review
 
 JSON
 
 reports/axionr_report.json
 
-Designed for:
+Automation, parsing, integrations
 
-automation,
-
-future integrations,
-
-parsing,
-
-data pipelines.
-
-Text
+TXT
 
 reports/summary.txt
 
-Designed for quick terminal review.
+Quick terminal review
 
-📋 Example Report Summary
+Example report summary
 
 AxionR Security Assessment
 
-Target: example.com
-Mode: FULL
+Target:  example.com
+Mode:    FULL
 
-Assets:       42
-URLs:         1,248
-Findings:     37
+Assets:  42
+URLs:    1,248
+Findings: 37
 
-Critical:      0
-High:          3
-Medium:       11
-Low:          12
-Informational:11
+Critical:       0
+High:           3
+Medium:        11
+Low:           12
+Informational: 11
 
-The actual numbers depend on the authorized target and tools available.
+Example numbers are illustrative. Actual results depend on the authorized target, scope, and installed tools.
 
-🔬 Assessment Evidence
+🔬 Evidence Collection
 
-AxionR preserves evidence from the workflow.
+AxionR preserves evidence generated during the workflow.
 
 Examples include:
 
-Tool output
-HTTP headers
-Scanner JSON
-Discovered URLs
-DNS results
-Port/service output
-Technology observations
-Execution metadata
+tool output;
+
+HTTP headers;
+
+scanner JSON;
+
+discovered URLs;
+
+DNS results;
+
+port/service output;
+
+technology observations;
+
+execution metadata.
 
 Command execution metadata is stored in:
 
 logs/commands.jsonl
 
-This helps make the assessment more reproducible.
+This helps make assessments more reproducible and reviewable.
 
-🧠 Finding Correlation
+🧠 Finding Correlation & Deduplication
 
 Multiple tools can report related observations.
 
@@ -972,11 +1645,11 @@ Source
 Severity
 Evidence
 
-The purpose is to reduce duplicate entries while preserving the original evidence source.
+The goal is to reduce duplicate entries while preserving the original evidence source.
 
-⚠️ Important Finding Philosophy
+⚠️ Finding Validation Philosophy
 
-AxionR deliberately distinguishes:
+AxionR deliberately separates potential signals from validated findings:
 
 Potential signal
       ↓
@@ -988,19 +1661,19 @@ Manual validation
       ↓
 Confirmed vulnerability
 
-A candidate finding should not automatically be presented as an exploitable vulnerability.
+A candidate should not automatically be presented as an exploitable vulnerability.
 
-This is especially important for:
+This is particularly important for:
 
-redirect observations,
+redirect observations;
 
-missing security headers,
+missing security headers;
 
-JavaScript secret-like strings,
+JavaScript secret-like strings;
 
-scanner output,
+scanner output;
 
-technology disclosures,
+technology disclosures;
 
 SSRF/IDOR-style candidates.
 
@@ -1008,7 +1681,8 @@ SSRF/IDOR-style candidates.
 
 When developing or extending AxionR:
 
-Prefer:
+Prefer
+
 ✓ Passive discovery
 ✓ Low-impact validation
 ✓ Explicit scope
@@ -1016,7 +1690,8 @@ Prefer:
 ✓ Evidence preservation
 ✓ Manual validation
 
-Avoid:
+Avoid
+
 ✗ Destructive testing
 ✗ Unauthorized scanning
 ✗ Credential theft
@@ -1070,7 +1745,7 @@ JSON reporting
 
 Text summary
 
-Future
+Future development
 
 Rich interactive terminal dashboard
 
@@ -1090,13 +1765,13 @@ Optional web dashboard
 
 More report templates
 
-Expanded passive intelligence integrations
+Expanded passive-intelligence integrations
 
-Better visualization of attack-surface relationships
+Better attack-surface relationship visualization
 
-🎬 Recommended GitHub Demo
+🎬 GitHub Demo
 
-A professional project demo should show:
+A concise professional demo should show:
 
 01. AxionR startup
         ↓
@@ -1118,15 +1793,15 @@ A professional project demo should show:
         ↓
 10. HTML report
 
-For GitHub, a short terminal GIF is usually more useful than a long video.
-
-Recommended asset:
+Recommended demo asset:
 
 assets/terminal-demo.gif
 
+A short terminal GIF can be placed near the top of the README after the final UI is recorded.
+
 🖼️ Screenshot Gallery
 
-After recording your final UI, add screenshots here.
+After capturing the final interface, add:
 
 Startup
 
@@ -1144,9 +1819,7 @@ Report
 
 ![AxionR Report](assets/screenshots/report.png)
 
-🌐 GitHub Topics
-
-Recommended repository topics:
+🌐 Suggested GitHub Topics
 
 cybersecurity
 penetration-testing
@@ -1165,7 +1838,7 @@ ctf
 
 🤝 Contributing
 
-Contributions are welcome when they improve legitimate security testing, education, documentation or defensive analysis.
+Contributions are welcome when they improve legitimate security testing, education, documentation, or defensive analysis.
 
 Development guidelines
 
@@ -1191,15 +1864,13 @@ Suggested workflow
 
 git checkout -b feature/your-feature
 
-Then:
-
 git add .
 git commit -m "Add: your feature"
 git push origin feature/your-feature
 
-Open a pull request after testing.
+Then open a pull request after testing.
 
-🐛 Issues
+🐛 Reporting Issues
 
 When reporting an issue, include:
 
@@ -1225,76 +1896,64 @@ confidential assessment results
 
 AxionR is intended for:
 
-authorized penetration testing,
+authorized penetration testing;
 
-cybersecurity education,
+cybersecurity education;
 
-CTFs,
+CTFs;
 
-controlled laboratories,
+controlled laboratories;
 
-bug bounty programs where testing is explicitly allowed,
+bug bounty programs where testing is explicitly allowed;
 
-security research with permission,
+security research with permission;
 
 defensive assessment.
 
 Do not run AxionR against systems you do not own or have explicit permission to assess.
 
-Users are responsible for complying with applicable laws, contracts, program rules and authorization boundaries.
+Users are responsible for complying with applicable laws, contracts, program rules, and authorization boundaries.
 
 ⚖️ Legal & Safety Notice
 
 AxionR is a security-assessment framework.
 
-The project does not grant permission to test any target.
+The project itself does not grant permission to test any target.
 
-Third-party security tools integrated by AxionR have their own licenses, terms and usage requirements. Review those requirements before using them.
+Third-party security tools integrated by AxionR have their own licenses, terms, and usage requirements. Review those requirements before using them.
 
-The authors and contributors are not responsible for unauthorized, illegal, destructive or abusive use of the software.
+The authors and contributors are not responsible for unauthorized, illegal, destructive, or abusive use of the software.
 
 Always establish authorization and scope before running active assessment modules.
 
 📜 License
 
-Choose and add an appropriate open-source license before publishing the repository.
+Add an appropriate open-source license to the repository before publishing it as an open-source project.
 
 For example:
 
 LICENSE
 
-If the repository is later released under MIT, replace this section with the official MIT license notice and add the corresponding LICENSE file.
+If the project is released under MIT, add the official MIT license text to LICENSE and update this section accordingly.
 
-👨‍💻 Author
-
-<div align="center">
-
-AxionR
-
-Web Security Reconnaissance & Assessment Framework
-
-Built as a cybersecurity learning, research and authorized-assessment project.
-
-</div>
-
-⭐ Support
-
-If AxionR is useful for your cybersecurity learning or authorized assessment workflows:
-
-⭐ Star the repository
-🐛 Report reproducible bugs
-💡 Suggest improvements
-🤝 Contribute responsibly
-📚 Improve documentation
+👨‍💻 Project
 
 <div align="center">
 
 ⚡ AxionR
 
+Web Security Reconnaissance & Assessment Framework
+
+Built as a cybersecurity learning, research, and authorized-assessment project.
+
+<br>
+
 Recon • Discover • Analyze • Validate • Report
+
+<br>
 
 v2.0.0
 
-Built for authorized security testing.
+<sub>Built for authorized security testing.</sub>
 
 </div>
